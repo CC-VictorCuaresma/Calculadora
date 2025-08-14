@@ -7,6 +7,25 @@ class CalculadoraTest {
 
     Calculadora calc = new Calculadora();
 
+    // ===== SUMAR =====
+    @Test
+    void testSumarPositivos() {
+        System.out.println("Probando suma con números positivos");
+        int esperado = 1750; // 950 + 800 = 1750
+        int obtenido = calc.sumar(950, 800);
+        System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
+        assertEquals(esperado, obtenido);
+    }
+
+    @Test
+    void testSumarNegativos() {
+        System.out.println("Probando suma con números negativos");
+        int esperado = -880; // -500 + (-380) = -880
+        int obtenido = calc.sumar(-500, -380);
+        System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
+        assertEquals(esperado, obtenido);
+    }
+
     // ===== RESTAR =====
     @Test
     void testRestarPositivos() {
