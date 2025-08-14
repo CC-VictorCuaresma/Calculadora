@@ -11,8 +11,8 @@ class CalculadoraTest {
     @Test
     void testRestarPositivos() {
         System.out.println("Probando resta con números positivos");
-        int esperado = 18; // 56 - 38 = 18
-        int obtenido = calc.restar(56, 38);
+        int esperado = 150; // 950 - 800 = 150
+        int obtenido = calc.restar(950, 800);
         System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
         assertEquals(esperado, obtenido);
     }
@@ -20,8 +20,8 @@ class CalculadoraTest {
     @Test
     void testRestarNegativos() {
         System.out.println("Probando resta con números negativos");
-        int esperado = -18; // -38 - (-20) = -18
-        int obtenido = calc.restar(-38, -20);
+        int esperado = -120; // -500 - (-380) = -120
+        int obtenido = calc.restar(-500, -380);
         System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
         assertEquals(esperado, obtenido);
     }
@@ -30,8 +30,8 @@ class CalculadoraTest {
     @Test
     void testMultiplicarConCero() {
         System.out.println("Probando multiplicación con cero");
-        int esperado = 0; // 44 * 0 = 0
-        int obtenido = calc.multiplicar(44, 0);
+        int esperado = 0; // 444 * 0 = 0
+        int obtenido = calc.multiplicar(444, 0);
         System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
         assertEquals(esperado, obtenido);
     }
@@ -39,8 +39,8 @@ class CalculadoraTest {
     @Test
     void testMultiplicarPositivoNegativo() {
         System.out.println("Probando multiplicación positivo por negativo");
-        int esperado = -880; // 44 * -20 = -880
-        int obtenido = calc.multiplicar(44, -20);
+        int esperado = -88000; // 880 * -100 = -88000
+        int obtenido = calc.multiplicar(880, -100);
         System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
         assertEquals(esperado, obtenido);
     }
@@ -49,8 +49,8 @@ class CalculadoraTest {
     @Test
     void testPorcentajeNormal() {
         System.out.println("Probando cálculo de porcentaje");
-        double esperado = 35.7143; // (20 de 56) = 35.7143%
-        double obtenido = calc.porcentaje(20, 56);
+        double esperado = (300.0 / 900.0) * 100; // 300 de 900 = 33.3333%
+        double obtenido = calc.porcentaje(300, 900);
         System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
         assertEquals(esperado, obtenido, 0.0001);
     }
@@ -58,15 +58,15 @@ class CalculadoraTest {
     @Test
     void testPorcentajeDivisionPorCero() {
         System.out.println("Probando porcentaje con total = 0 (debe lanzar excepción)");
-        assertThrows(ArithmeticException.class, () -> calc.porcentaje(10, 0));
+        assertThrows(ArithmeticException.class, () -> calc.porcentaje(100, 0));
     }
 
     // ===== RAÍZ CUADRADA =====
     @Test
     void testRaizCuadradaNormal() {
         System.out.println("Probando raíz cuadrada de número positivo");
-        double esperado = Math.sqrt(38); // raíz cuadrada de 38
-        double obtenido = calc.raizCuadrada(38);
+        double esperado = Math.sqrt(961); // raíz cuadrada de 961 = 31
+        double obtenido = calc.raizCuadrada(961);
         System.out.println("Esperado: " + esperado + " | Obtenido: " + obtenido);
         assertEquals(esperado, obtenido, 0.0001);
     }
@@ -74,6 +74,6 @@ class CalculadoraTest {
     @Test
     void testRaizCuadradaNegativo() {
         System.out.println("Probando raíz cuadrada de número negativo (debe lanzar excepción)");
-        assertThrows(IllegalArgumentException.class, () -> calc.raizCuadrada(-44));
+        assertThrows(IllegalArgumentException.class, () -> calc.raizCuadrada(-999));
     }
 }
